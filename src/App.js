@@ -4,6 +4,8 @@ function App() {
     return (
         <div>
             <p>redux slices 2</p>
+            <p>redux slices 2</p>
+            <p>redux slices 2</p>
         </div>
     );
 }
