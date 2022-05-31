@@ -1,3 +1,4 @@
+import { Checkbox } from "@mui/material";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteTodo, toggleStatus } from "../store/todoSlice";
@@ -6,14 +7,18 @@ const TodoItem = ({ id, title, completed }) => {
     const dispatch = useDispatch();
 
     return (
-        <li>
-            <input
-                type="checkbox"
-                checked={completed}
+        <li className="todo__item">
+            <Checkbox
+                className="todo__checkbox"
                 onChange={() => dispatch(toggleStatus(id))}
+                checked={completed}
+                color="default"
             />
-            <span>{title}</span>
-            <span className="delete" onClick={() => dispatch(deleteTodo(id))}>
+            <span className="todo__text">{title}</span>
+            <span
+                className="todo__delete"
+                onClick={() => dispatch(deleteTodo(id))}
+            >
                 &times;
             </span>
         </li>

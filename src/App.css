@@ -1,23 +1,52 @@
-.App {
-    text-align: center;
+.main {
+    padding-top: 40px;
 }
 
-ul {
-    list-style-type: none;
-}
-
-li {
+.box {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
+    gap: 24px
 }
 
-.delete {
+.box__input {
+    flex: 1;
+}
+
+.todos {
+    list-style-type: none;
+    margin: 0;
+    padding: 24px 0;
+}
+
+.todo__item {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 8px 18px 8px 8px;
+}
+
+.todo__item:hover {
+    background-color: rgba(0, 0, 180, 0.06);
+    border-radius: 8px;
+    transition: .1s all ease-in-out;
+}
+
+.todo__text {
+    flex: 1;
+}
+
+.todo__delete {
+    display: none;
+}
+
+.todo__item:hover .todo__delete {
+    display: block;
+    font-size: 24px;
+    line-height: 28px;
+    padding: 0 0 8px;
     color: red;
     cursor: pointer;
 }
 
-input:checked+span {
-    text-decoration: line-through;
+input[type="checkbox"] {
+    padding: 200px;
 }

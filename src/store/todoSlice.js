@@ -74,7 +74,7 @@ export const toggleStatus = createAsyncThunk(
 
 export const addNewTodo = createAsyncThunk(
     "todos/addNewTodo",
-    async function (text, { rejectWithValue, dispatch }) {
+    async function (text, { rejectWithValue, dispatch, getState }) {
         try {
             const todo = {
                 title: text,

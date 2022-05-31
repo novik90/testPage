@@ -5,13 +5,17 @@ import { addNewTodo, fetchTodos } from "./store/todoSlice";
 import TodoList from "./components/TodoList";
 import InputField from "./components/InputField";
 import "./App.css";
+import { Container } from "@mui/material";
 
 function App() {
     const { status, error } = useSelector((state) => state.todos);
     const dispatch = useDispatch();
     const [text, setText] = useState("");
 
-    const addTask = () => {
+    const addTask = (e) => {
+        if (!text) {
+            return;
+        }
         dispatch(addNewTodo(text));
         setText("");
     };
@@ -21,7 +25,7 @@ function App() {
     }, [dispatch]);
 
     return (
-        <div className="App">
+        <Container maxWidth="sm" className="main">
             <InputField
                 text={text}
                 handleInput={setText}
@@ -32,7 +36,7 @@ function App() {
             {error && <h2>An error occured: {error}</h2>}
 
             <TodoList />
-        </div>
+        </Container>
     );
 }
 
